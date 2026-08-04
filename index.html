@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes Application</title>
+  <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Notes Application</h1>
+
+    <div>
+      <textarea id="addNote" placeholder="Enter note"></textarea>
+      <button onclick="addNote()">Add Note</button>
+    </div>
+
+    <div>
+      <button onclick="getNotes()">Show Notes</button>
+      <p id="result"></p>
+    </div>
+
+    <div>
+      <textarea id="deleteNote" placeholder="Enter note to delete"></textarea>
+      <button onclick="deleteNote()">Delete Note</button>
+    </div>
+
+    <div>
+      <button onclick="clearNotes()">Clear All Notes</button>
+    </div>
+
+    <h2>Saved Notes</h2>
+    <div id="notesList"></div>
+  </div>
+
+  <script src="script1.js"></script>
+</body>
+</html>

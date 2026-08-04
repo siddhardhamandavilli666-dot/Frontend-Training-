@@ -1,0 +1,27 @@
+body{
+    margin:0;
+    font-family:Arial;
+}
+
+ul{
+    list-style:none;
+    background:black;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+}
+
+li{
+    float:left;
+}
+
+li a{
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    display:block;
+}
+
+li a:hover{
+    background:blueviolet;
+}

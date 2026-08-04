@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Array Exercises</title>
+</head>
+<body>
+    <h1> Double the number</h1>
+    <script>
+        const num=[1,2,3,4,5];
+        const doubled=num.map(n=>n*2);
+        document.write(doubled);
+    </script>
+    <h1> Convert lowercase letters to uppercase</h1>
+    <script>
+        const string=['siddhu','koushik','abhi'];
+        const uppercase=string.map(s=>s.toUpperCase());
+        document.write(uppercase);
+    </script>
+    <h1> Extract only names</h1>
+    <script>
+        let students=[
+            {
+                id:1,
+                name:'siddhu',
+            },
+            {
+                id:2,
+                name:'abhi',
+            },
+            {
+                id:3,
+                name:'koushik',
+            }
+        ];
+        const name=students.map(s=>s.name);
+        document.write(name);
+    </script>
+    <h1> Numbers greater than 50</h1>
+    <script> 
+        const number=[23,45,67,89,90];
+        const greater=number.filter(function(m)
+        {
+            return m>50;
+        });
+        document.write(greater);
+    </script>
+    <h1> filter active users</h1>
+    <script>
+        let user=[
+            {
+                name:'siddhu',
+                active:true,
+            },
+            {
+                name:'koushik',
+                active:false,
+            },
+            {
+                name:'abhi',
+                active:true,
+            }
+        ];
+        const active=user.filter(function(n)
+        {
+            return n.active;
+        });
+        document.write(JSON.stringify(active));
+    </script>
+    <h1> count occurence of elements count how many times each value appears using filter method</h1>
+    <script>
+        const arr=[1,2,3,4,5,1,2,3,4,5];
+        const count=arr.filter(function(value,index,self)
+        {
+            return self.indexOf(value)===index;
+        }).map(function(value)
+        {
+            return {value:value,count:arr.filter(function(v){return v===value}).length};
+        });
+        document.write(JSON.stringify(count));
+    </script>
+    <h1>calculate total price of the products</h1>
+    <script>
+        let products=[
+            {
+                name:'product1',
+                price:100,
+            },
+            {
+                name:'product2',
+                price:200,
+            },
+            {
+                name:'product3',
+                price:300,
+            }
+        ];
+        const total=products.filter(function(p)
+        {
+            return p.price>0;
+        }).reduce(function(acc,curr)
+        {
+            return acc+curr.price;
+        },0);
+        document.write(total);
+        </script>
+</body>
+</html>

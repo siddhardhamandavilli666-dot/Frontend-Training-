@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> object destructuring</title>
+    </head>
+    <body>
+        <h1>Object Destructuring</h1>
+        <script>
+            const employee={
+                id:7,
+                name:"siddhu",
+                department:"IT"
+            };
+            const{id,name,department}=employee;
+            console.log(id);
+            console.log(name);
+            console.log(department);
+        </script>
+        <h1> Rename Variables </h1>
+        <script> 
+            const student={
+                name:"siddhu",
+                age:21
+            };
+            const{name:studentName,age:studentAge}=student;
+            console.log(studentName);   
+            console.log(studentAge);
+        </script>
+        <h1>Default Values</h1>
+        <script>
+                const user={ name:"Siddhu"};
+                const{ name:userName,city="MDP"}=user;
+                console.log(userName);
+                console.log(city);
+        </script>   
+        <h1> nested object destructuring</h1>
+        <script> 
+            const emp={name:"Siddhu",address:{cit:"Mandapeta",state:"AP"}};
+            const {address:{cit,state}}=emp;
+            console.log(cit);
+            console.log(state);
+        </script>   
+        <h1> Basic Array Destructuring</h1>
+        <script>
+            const colors=["red" ,"blue", "green"];
+            const [firstColor,secondColor,thirdColor]=colors;
+            console.log(firstColor);
+            console.log(secondColor);   
+            console.log(thirdColor);
+        </script>                                 
+    </body>
+</html>

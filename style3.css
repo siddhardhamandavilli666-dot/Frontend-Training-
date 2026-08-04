@@ -1,0 +1,26 @@
+body{
+    background:#f2f2f2;
+    font-family:Arial;
+}
+
+.price{
+    width:250px;
+    background:white;
+    margin:50px auto;
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 0 10px gray;
+}
+
+button{
+    padding:10px 20px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+button:hover{
+    background:darkgreen;
+}

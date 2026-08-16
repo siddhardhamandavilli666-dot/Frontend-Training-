@@ -1,0 +1,41 @@
+/* Minimal, light overrides while keeping Bootstrap defaults */
+body{
+	background: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #222;
+}
+
+.container{ padding-top: 36px; }
+
+.card{
+	border-radius: 8px;
+	border: 1px solid #e9ecef;
+	box-shadow: none;
+}
+
+.card-header{
+	background: transparent;
+	border-bottom: none;
+	padding: 1rem 1.25rem;
+	text-align: center;
+}
+
+.card-body{ padding: 1rem 1.25rem; }
+
+.card-footer{ background: transparent; border-top: none; padding: 0.75rem 1.25rem; }
+
+#question{ font-weight: 600; color: #111; min-height: 64px; }
+
+/* Use Bootstrap button look but keep simple spacing */
+.answer-btn{ text-align: left; padding: 10px 12px; border-radius: 6px; }
+.answer-btn + .answer-btn{ margin-top: 8px; }
+
+.answer-btn.correct{ background: #198754 !important; border-color: #198754 !important; color: #fff !important; }
+.answer-btn.wrong{ background: #dc3545 !important; border-color: #dc3545 !important; color: #fff !important; }
+
+#score{ font-weight: 600; }
+
+@media (max-width: 576px){
+	.container{ padding-top: 18px; }
+	#question{ font-size: 18px; }
+}

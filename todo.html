@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 30px;
+        }
+
+        .todo-container {
+            width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .js-input,
+        .js-date {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .js-input {
+            width: 50%;
+        }
+
+        .js-date {
+            width: 25%;
+        }
+
+        .js-button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+
+        .js-button:hover {
+            background-color: #218838;
+        }
+
+        .todo-item {
+            display: grid;
+            grid-template-columns: 1fr 130px 70px;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .delete-button {
+            padding: 8px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #dc3545;
+            color: white;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>Todo List</h1>
+        <input class="js-input" placeholder="Todo name">
+        <input type="date" class="js-date">
+        <button class="js-button" onclick="addtodo()">Add</button>
+        <div class="js-todos"></div>
+    </div>
+    <script>
+        const array = [];
+        function displaytodo() {
+            let todoele = "";
+            for (let i = 0; i < array.length; i++) {
+                const itemObject = array[i];
+                const { name, dueDate } = itemObject;
+                const html = `
+                    <div class="todo-item">
+                        <span>${name}</span>
+                        <span>${dueDate}</span>
+                        <button class="delete-button"
+                            onclick="array.splice(${i}, 1); displaytodo();">
+                            Delete
+                        </button>
+                    </div>
+                `;
+                todoele += html;
+            }
+            document.querySelector('.js-todos').innerHTML = todoele;
+        }
+        function addtodo() {
+            const inputele = document.querySelector('.js-input');
+            const dateele = document.querySelector('.js-date');
+            const inputval = inputele.value;
+            const dateval = dateele.value;
+            array.push({name: inputval,dueDate: dateval});
+            displaytodo();
+            inputele.value = "";
+            dateele.value = "";
+        }
+    </script>
+</body>
+</html>

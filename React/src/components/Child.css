@@ -1,0 +1,18 @@
+.card
+{
+    width: 300px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.card img{
+    width: 300px;
+    border-radius: 10px;
+}
+.card h3{
+    font-size:20px ;
+}
+.card p{
+    font-size: 15px;
+    font-style: italic;
+}

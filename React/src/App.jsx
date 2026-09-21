@@ -164,9 +164,9 @@
 
 
 import React,{useState} from 'react'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 const App = () => {
-  const [formData,setFormdata]=useState({name:"",email:"",pass:"",});
+  const [formData,setFormdata]=useState({name:"",email:"",batch:"",});
   const [subForm,setSubForm]=useState(null);
   function change(e)
   {
@@ -185,30 +185,187 @@ const App = () => {
        e.preventDefault();
        setSubForm(formData);
        setFormdata(
-           {name:"",email:"",pass:"",}
+           {name:"",email:"",batch:"",}
        )
   }
   return (
-    <div>
-      <form onSubmit={click}>
-        <input type="text" placeholder='Enter the name:' onChange={change} name="name" value={formData.name}required />
-      <input type="email" placeholder='Enter the email:' onChange={change} name="email" value={formData.email} required/>
-      <input type="password" placeholder='Enter the password' onChange={change} name="pass"  value={formData.pass}required/>
-      <button type="submit">Submit</button>
+    <div className="container mt-5 text-center">
+      <form  onSubmit={click}>
+        <h1 className='text-center'>Registartion Form</h1>
+        <label htmlFor="name"><b>Name: </b></label>
+      <input type="text" placeholder='Enter the name' onChange={change} name="name" value={formData.name} className="form-control mb-3 w-25 mx-auto" required /> <br />
+       <label htmlFor="email"><b>Email: </b></label>
+      <input type="email" placeholder='Enter the email' onChange={change} name="email" value={formData.email} className="form-control mb-3 w-25 mx-auto" required/> <br />
+       <label htmlFor="batch"><b>Batch: </b></label>
+      <input type="number" placeholder='Enter the Batch' onChange={change} name="batch"  value={formData.batch} className="form-control mb-3 w-25 mx-auto" required/> <br />
+      <button type="submit" className="btn btn-primary" >Submit</button>
       </form>
        {
         subForm &&(
-          <div>
+          <div className="mt-4">
             <h2>Form Submitted</h2>
             <p>Name:{subForm.name}</p>
             <p>Email:{subForm.email}</p>
-            <p>Password:{subForm.pass}</p>
+            <p>Batch:{subForm.batch}</p>
           </div>
         )
        }
     </div>
   )
-}
 
+}
 export default App
 
+
+
+// import { useState, useMemo, useRef, useCallback } from "react";
+// import Student from "./Student";
+// import useDebounce from "./useDebounce";
+// function App() {
+
+//     const [students] = useState([
+//         {
+//             id: 1,
+//             name: "Pavan",
+//             department: "CSE",
+//             cgpa: 8.5
+//         },
+//         {
+//             id: 2,
+//             name: "Rahul",
+//             department: "ECE",
+//             cgpa: 8.2
+//         },
+//         {
+//             id: 3,
+//             name: "Priya",
+//             department: "CSE",
+//             cgpa: 9.1
+//         },
+//         {
+//             id: 4,
+//             name: "Anil",
+//             department: "IT",
+//             cgpa: 7.8
+//         }
+//     ]);
+
+//     const [searchTerm, setSearchTerm] = useState("");
+
+//     const [count, setCount] = useState(0);
+
+//     const [selectedStudent, setSelectedStudent] = useState(null);
+
+//     // useRef
+//     const searchInputRef = useRef(null);
+
+//     // Custom Hook
+//     const debouncedSearch = useDebounce(searchTerm, 500);
+
+//     // useMemo
+//     const filteredStudents = useMemo(() => {
+
+//         console.log("Filtering students...");
+
+//         return students.filter(student =>
+//             student.name
+//                 .toLowerCase()
+//                 .includes(debouncedSearch.toLowerCase())
+//         );
+
+//     }, [students, debouncedSearch]);
+
+//     // useCallback
+//     const handleSelect = useCallback((student) => {
+
+//         setSelectedStudent(student);
+
+//     }, []);
+
+//     // useRef
+//     const focusSearch = () => {
+
+//         searchInputRef.current.focus();
+
+//     };
+
+//     return (
+//         <div className="container mt-4">
+
+//             <h1>Student Management</h1>
+
+//             <hr />
+
+//             <div className="mb-3">
+
+//                 <input
+//                     ref={searchInputRef}
+//                     type="text"
+//                     className="form-control"
+//                     placeholder="Search student..."
+//                     value={searchTerm}
+//                     onChange={(e) =>
+//                         setSearchTerm(e.target.value)
+//                     }
+//                 />
+
+//                 <button
+//                     onClick={focusSearch}
+//                     className="btn btn-secondary mt-2"
+//                 >
+//                     Focus Search
+//                 </button>
+
+//             </div>
+
+//             <hr />
+
+//             <button
+//                 onClick={() => setCount(count + 1)}
+//                 className="btn btn-success mb-3"
+//             >
+//                 Count: {count}
+//             </button>
+
+//             <h3>
+//                 Students
+//             </h3>
+
+//             {filteredStudents.map(student => (
+
+//                 <Student
+//                     key={student.id}
+//                     student={student}
+//                     onSelect={handleSelect}
+//                 />
+
+//             ))}
+
+//             {selectedStudent && (
+
+//                 <div className="alert alert-info mt-3">
+
+//                     <h4>
+//                         Selected Student
+//                     </h4>
+
+//                     <p>
+//                         Name: {selectedStudent.name}
+//                     </p>
+
+//                     <p>
+//                         Department: {selectedStudent.department}
+//                     </p>
+
+//                     <p>
+//                         CGPA: {selectedStudent.cgpa}
+//                     </p>
+
+//                 </div>
+
+//             )}
+
+//         </div>
+//     );
+// }
+// export default App;

@@ -163,58 +163,58 @@
 // export default App
 
 
-import React,{useState} from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-const App = () => {
-  const [formData,setFormdata]=useState({name:"",email:"",batch:"",});
-  const [subForm,setSubForm]=useState(null);
-  function change(e)
-  {
-      setFormdata
-      (
-        {
-          ...formData,
-           [e.target.name]:e.target.value,
+// import React,{useState} from 'react'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// const App = () => {
+//   const [formData,setFormdata]=useState({name:"",email:"",batch:"",});
+//   const [subForm,setSubForm]=useState(null);
+//   function change(e)
+//   {
+//       setFormdata
+//       (
+//         {
+//           ...formData,
+//            [e.target.name]:e.target.value,
 
-        }
-      );
+//         }
+//       );
 
-  }
-  function click(e)
-  {
-       e.preventDefault();
-       setSubForm(formData);
-       setFormdata(
-           {name:"",email:"",batch:"",}
-       )
-  }
-  return (
-    <div className="container mt-5 text-center">
-      <form  onSubmit={click}>
-        <h1 className='text-center'>Registartion Form</h1>
-        <label htmlFor="name"><b>Name: </b></label>
-      <input type="text" placeholder='Enter the name' onChange={change} name="name" value={formData.name} className="form-control mb-3 w-25 mx-auto" required /> <br />
-       <label htmlFor="email"><b>Email: </b></label>
-      <input type="email" placeholder='Enter the email' onChange={change} name="email" value={formData.email} className="form-control mb-3 w-25 mx-auto" required/> <br />
-       <label htmlFor="batch"><b>Batch: </b></label>
-      <input type="number" placeholder='Enter the Batch' onChange={change} name="batch"  value={formData.batch} className="form-control mb-3 w-25 mx-auto" required/> <br />
-      <button type="submit" className="btn btn-primary" >Submit</button>
-      </form>
-       {
-        subForm &&(
-          <div className="mt-4">
-            <h2>Form Submitted</h2>
-            <p>Name:{subForm.name}</p>
-            <p>Email:{subForm.email}</p>
-            <p>Batch:{subForm.batch}</p>
-          </div>
-        )
-       }
-    </div>
-  )
+//   }
+//   function click(e)
+//   {
+//        e.preventDefault();
+//        setSubForm(formData);
+//        setFormdata(
+//            {name:"",email:"",batch:"",}
+//        )
+//   }
+//   return (
+//     <div className="container mt-5 text-center">
+//       <form  onSubmit={click}>
+//         <h1 className='text-center'>Registartion Form</h1>
+//         <label htmlFor="name"><b>Name: </b></label>
+//       <input type="text" placeholder='Enter the name' onChange={change} name="name" value={formData.name} className="form-control mb-3 w-25 mx-auto" required /> <br />
+//        <label htmlFor="email"><b>Email: </b></label>
+//       <input type="email" placeholder='Enter the email' onChange={change} name="email" value={formData.email} className="form-control mb-3 w-25 mx-auto" required/> <br />
+//        <label htmlFor="batch"><b>Batch: </b></label>
+//       <input type="number" placeholder='Enter the Batch' onChange={change} name="batch"  value={formData.batch} className="form-control mb-3 w-25 mx-auto" required/> <br />
+//       <button type="submit" className="btn btn-primary" >Submit</button>
+//       </form>
+//        {
+//         subForm &&(
+//           <div className="mt-4">
+//             <h2>Form Submitted</h2>
+//             <p>Name:{subForm.name}</p>
+//             <p>Email:{subForm.email}</p>
+//             <p>Batch:{subForm.batch}</p>
+//           </div>
+//         )
+//        }
+//     </div>
+//   )
 
-}
-export default App
+// }
+// export default App
 
 
 
@@ -369,3 +369,103 @@ export default App
 //     );
 // }
 // export default App;
+
+
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "./App.css";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Products from "./components/Products";
+import FAQ from "./components/FAQ";
+import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
+
+function App() {
+  return (
+    <>
+      <div className="container text-center mt-4">
+        <h2>My Website</h2>
+
+        <form className="d-flex justify-content-center mt-3">
+          <input
+            className="form-control"
+            type="search"
+            placeholder="Search"
+            style={{ maxWidth: "700px", height: "50px" }}
+          />
+          <button className="btn btn-primary ms-2" type="submit">
+            Search
+          </button>
+        </form>
+
+        <nav className="mt-4">
+          <Link className="btn btn-link" to="/">
+            Home
+          </Link>
+
+          <Link className="btn btn-link" to="/about">
+            About
+          </Link>
+
+          <Link className="btn btn-link" to="/contact">
+            Contact
+          </Link>
+
+          <div className="btn-group">
+            <button
+              className="btn btn-link dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              Products
+            </button>
+
+            <ul className="dropdown-menu">
+              <li>
+                <Link className="dropdown-item" to="/products">
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/products/cars">
+                  Cars
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/products/bikes">
+                  Bikes
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <Link className="btn btn-link" to="/faq">
+            FAQ
+          </Link>
+
+          <Link className="btn btn-link" to="/privacy-policy">
+            Privacy Policy
+          </Link>
+        </nav>
+      </div>
+
+      <div className="container mt-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/cars" element={<h1>Cars</h1>} />
+          <Route path="/products/bikes" element={<h1>Bikes</h1>} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        </Routes>
+      </div>
+    </>
+  );
+}
+
+export default App;
